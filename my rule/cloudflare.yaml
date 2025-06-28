@@ -1,0 +1,28 @@
+# custom/cloudflare.yaml
+# Cloudflare 相关服务及 IP 规则
+# payload 格式表示这是一个规则列表
+payload:
+  # 域名规则
+  - 'DOMAIN-SUFFIX,cloudflare.com'
+  - 'DOMAIN-SUFFIX,cloudflare.cn'
+  - 'DOMAIN-SUFFIX,cloudflare-ipfs.com'
+  - 'DOMAIN-SUFFIX,cloudflarestream.com'
+  - 'DOMAIN-KEYWORD,cloudflare'
+  - 'DOMAIN-SUFFIX,wanghy.top'
+  # Cloudflare 官方公布的 IP 段 (非常重要)
+  # 这可以确保所有走向 Cloudflare CDN 的流量都能被匹配
+  - 'IP-CIDR,173.245.48.0/20'
+  - 'IP-CIDR,103.21.244.0/22'
+  - 'IP-CIDR,103.22.200.0/22'
+  - 'IP-CIDR,103.31.4.0/22'
+  - 'IP-CIDR,141.101.64.0/18'
+  - 'IP-CIDR,108.162.192.0/18'
+  - 'IP-CIDR,190.93.240.0/20'
+  - 'IP-CIDR,188.114.96.0/20'
+  - 'IP-CIDR,197.234.240.0/22'
+  - 'IP-CIDR,198.41.128.0/17'
+  - 'IP-CIDR,162.158.0.0/15'
+  - 'IP-CIDR,104.16.0.0/13'
+  - 'IP-CIDR,104.24.0.0/14'
+  - 'IP-CIDR,172.64.0.0/13'
+  - 'IP-CIDR,131.0.72.0/22'
