@@ -1,0 +1,24 @@
+# custom/ai-services.yaml
+# 常用 AI 服务规则 (OpenAI, Gemini, Copilot)
+payload:
+  # OpenAI / ChatGPT
+  - 'DOMAIN-SUFFIX,openai.com'
+  - 'DOMAIN-SUFFIX,chatgpt.com' # 新域名
+  - 'DOMAIN-KEYWORD,openai'
+  - 'DOMAIN,openaicom-api-bdc.net' # API 相关
+
+  # Google Gemini & AI Studio
+  - 'DOMAIN-SUFFIX,ai.google.dev'
+  - 'DOMAIN-SUFFIX,makersuite.google.com'
+  - 'DOMAIN-SUFFIX,generativelanguage.googleapis.com'
+  - 'DOMAIN-KEYWORD,gemini'
+
+  # Microsoft Copilot & Bing AI
+  - 'DOMAIN-SUFFIX,copilot.microsoft.com'
+  - 'DOMAIN,bing.com' # Copilot 深度集成 Bing
+  - 'DOMAIN-SUFFIX,bing.com'
+  - 'DOMAIN,sydney.bing.com' # Copilot 服务端点
+
+  # GitHub Copilot
+  - 'DOMAIN,copilot.github.com'
+  - 'DOMAIN,api.github.com' # Copilot 依赖的 API
