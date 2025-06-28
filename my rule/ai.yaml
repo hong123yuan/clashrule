@@ -25,13 +25,6 @@ payload:
   - 'DOMAIN-SUFFIX,copilot.microsoft.com'
   - 'DOMAIN-SUFFIX,bing.com'
   - 'DOMAIN,sydney.bing.com'
-  # Microsoft 登录与核心服务 (非常重要！)
-  - 'DOMAIN-SUFFIX,live.com'
-  - 'DOMAIN-SUFFIX,microsoft.com'
-  - 'DOMAIN-SUFFIX,microsoftonline.com'
-  - 'DOMAIN-SUFFIX,msn.cn'
-  - 'DOMAIN-SUFFIX,msn.com'
-  - 'DOMAIN-SUFFIX,azureedge.net'
 
   # === GitHub Copilot ===
   - 'DOMAIN,copilot.github.com'
