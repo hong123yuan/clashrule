@@ -1,5 +1,5 @@
 proxy-groups:
-  - name: 🚀 节点选择
+  - name: 🚀 海外通用
     type: select
     proxies:
       - ♻️ 自动选择
@@ -84,7 +84,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
       - DIRECT
-  - name: 🌏 国内媒体
+  - name: 🌏 海外特殊
     type: select
     proxies:
       - DIRECT
@@ -94,54 +94,6 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🚀 手动切换
   - name: 📢 谷歌FCM
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-      - 🇺🇲 美国节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-  - name: Ⓜ️ 微软Bing
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-      - 🇺🇲 美国节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-  - name: Ⓜ️ 微软云盘
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-      - 🇺🇲 美国节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-  - name: Ⓜ️ 微软服务
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - DIRECT
-      - 🇺🇲 美国节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-  - name: 🍎 苹果服务
     type: select
     proxies:
       - DIRECT
@@ -165,30 +117,12 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇰🇷 韩国节点
       - 🚀 手动切换
-  - name: 🎶 网易音乐
-    type: select
-    include-all: true
-    filter: (?i)网易|音乐|NetEase|Music
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-      - ♻️ 自动选择
   - name: 🎯 全球直连
     type: select
     proxies:
       - DIRECT
       - 🚀 节点选择
       - ♻️ 自动选择
-  - name: 🛑 广告拦截
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-  - name: 🍃 应用净化
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
   - name: 🐟 漏网之鱼
     type: select
     proxies:
@@ -264,27 +198,6 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  UnBan:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/UnBan.list
-    path: ./ruleset/UnBan.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  BanAD:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanAD.list
-    path: ./ruleset/BanAD.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  BanProgramAD:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/BanProgramAD.list
-    path: ./ruleset/BanProgramAD.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
   GoogleFCM:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/GoogleFCM.list
     path: ./ruleset/GoogleFCM.list
@@ -295,27 +208,6 @@ rule-providers:
   SteamCN:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/SteamCN.list
     path: ./ruleset/SteamCN.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  Bing:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Bing.list
-    path: ./ruleset/Bing.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  OneDrive:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/OneDrive.list
-    path: ./ruleset/OneDrive.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  Microsoft:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Microsoft.list
-    path: ./ruleset/Microsoft.list
     behavior: classical
     interval: 86400
     format: text
@@ -341,44 +233,9 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  NetEaseMusic:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/NetEaseMusic.list
-    path: ./ruleset/NetEaseMusic.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  Epic:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Epic.list
-    path: ./ruleset/Epic.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  Origin:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Origin.list
-    path: ./ruleset/Origin.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  Sony:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Sony.list
-    path: ./ruleset/Sony.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
   Steam:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Steam.list
     path: ./ruleset/Steam.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  Nintendo:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Nintendo.list
-    path: ./ruleset/Nintendo.list
     behavior: classical
     interval: 86400
     format: text
@@ -400,20 +257,6 @@ rule-providers:
   Bahamut:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bahamut.list
     path: ./ruleset/Bahamut.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  BilibiliHMT:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/BilibiliHMT.list
-    path: ./ruleset/BilibiliHMT.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  Bilibili:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bilibili.list
-    path: ./ruleset/Bilibili.list
     behavior: classical
     interval: 86400
     format: text
@@ -465,32 +308,15 @@ rules:
   - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
   - "PROCESS-NAME,subs-check,🎯 全球直连"
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
-  - "RULE-SET,UnBan,🎯 全球直连"
-  - "RULE-SET,BanAD,🛑 广告拦截"
-  - "RULE-SET,BanProgramAD,🍃 应用净化"
   - "RULE-SET,GoogleFCM,📢 谷歌FCM"
   - "RULE-SET,GoogleCN,🎯 全球直连"
   - "RULE-SET,SteamCN,🎯 全球直连"
-  - "RULE-SET,Bing,Ⓜ️ 微软Bing"
-  - "RULE-SET,OneDrive,Ⓜ️ 微软云盘"
-  - "RULE-SET,Microsoft,Ⓜ️ 微软服务"
-  - "RULE-SET,Apple,🍎 苹果服务"
   - "RULE-SET,Telegram,📲 电报消息"
   - "RULE-SET,AI,💬 Ai平台"
-  - "RULE-SET,NetEaseMusic,🎶 网易音乐"
-  - "RULE-SET,Epic,🎮 游戏平台"
-  - "RULE-SET,Origin,🎮 游戏平台"
-  - "RULE-SET,Sony,🎮 游戏平台"
   - "RULE-SET,Steam,🎮 游戏平台"
-  - "RULE-SET,Nintendo,🎮 游戏平台"
   - "RULE-SET,YouTube,📹 油管视频"
-  - "RULE-SET,Netflix,🎥 奈飞视频"
-  - "RULE-SET,Bahamut,📺 巴哈姆特"
-  - "RULE-SET,BilibiliHMT,📺 哔哩哔哩"
-  - "RULE-SET,Bilibili,📺 哔哩哔哩"
-  - "RULE-SET,ChinaMedia,🌏 国内媒体"
   - "RULE-SET,ProxyMedia,🌍 国外媒体"
-  - "RULE-SET,ProxyGFWlist,🚀 节点选择"
+  - "RULE-SET,ProxyGFWlist,🚀 海外通用"
   - "RULE-SET,ChinaDomain,🎯 全球直连"
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
   - "RULE-SET,Download,🎯 全球直连"
