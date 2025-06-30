@@ -11,6 +11,18 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 🚀 手动切换
       - DIRECT
+  - name: 🌏 海外特殊
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
+      - DIRECT
   - name: 🚀 手动切换
     include-all: true
     type: select
@@ -19,96 +31,23 @@ proxy-groups:
     include-all: true
     interval: 300
     tolerance: 50
-  - name: 📲 电报消息
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-      - DIRECT
-  - name: 💬 Ai平台
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-      - DIRECT
-  - name: 📹 油管视频
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-      - DIRECT
-  - name: 📺 巴哈姆特
-    type: select
-    proxies:
-      - 🇨🇳 台湾节点
-      - 🚀 节点选择
-      - 🚀 手动切换
-      - DIRECT
-  - name: 📺 哔哩哔哩
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🇨🇳 台湾节点
-      - 🇭🇰 香港节点
-  - name: 🌍 国外媒体
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
-      - DIRECT
-  - name: 🌏 海外特殊
-    type: select
-    proxies:
-      - DIRECT
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🚀 手动切换
-  - name: 📢 谷歌FCM
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
-      - 🇺🇲 美国节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
-      - 🚀 手动切换
   - name: 🎮 游戏平台
     type: select
     proxies:
       - DIRECT
+      - 🚀 节点选择
+      - 🇺🇲 美国节点
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇰🇷 韩国节点
+      - 🚀 手动切换
+   - name: ☁️ CF切换
+    type: select
+    proxies:
+      - DIRECT
+      - ☁️ Cloudflare节点
       - 🚀 节点选择
       - 🇺🇲 美国节点
       - 🇭🇰 香港节点
@@ -169,6 +108,12 @@ proxy-groups:
   - name: 🇰🇷 韩国节点
     include-all: true
     filter: (?i)KR|Korea|KOR|首尔|韩|韓
+    type: url-test
+    interval: 300
+    tolerance: 50
+  - name: ☁️ Cloudflare节点
+    include-all: true
+    filter: (?i)CF|Korea|KOR|优选|韩|韓
     type: url-test
     interval: 300
     tolerance: 50
@@ -308,14 +253,14 @@ rules:
   - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
   - "PROCESS-NAME,subs-check,🎯 全球直连"
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
-  - "RULE-SET,GoogleFCM,📢 谷歌FCM"
+  - "RULE-SET,GoogleFCM,🚀 海外通用"
   - "RULE-SET,GoogleCN,🎯 全球直连"
   - "RULE-SET,SteamCN,🎯 全球直连"
-  - "RULE-SET,Telegram,📲 电报消息"
+  - "RULE-SET,Telegram,🚀 海外通用"
   - "RULE-SET,AI,💬 Ai平台"
   - "RULE-SET,Steam,🎮 游戏平台"
-  - "RULE-SET,YouTube,📹 油管视频"
-  - "RULE-SET,ProxyMedia,🌍 国外媒体"
+  - "RULE-SET,YouTube,🚀 海外通用"
+  - "RULE-SET,ProxyMedia,🚀 海外通用"
   - "RULE-SET,ProxyGFWlist,🚀 海外通用"
   - "RULE-SET,ChinaDomain,🎯 全球直连"
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
