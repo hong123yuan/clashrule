@@ -1,31 +1,60 @@
 # custom/ai-services.yaml
 # 增强版AI服务规则，旨在解决区域限制问题
 payload:
-  # === OpenAI / ChatGPT ===
+  # === OpenAI/ChatGPT ===
   - 'DOMAIN-SUFFIX,openai.com'
   - 'DOMAIN-SUFFIX,chatgpt.com'
-  - 'DOMAIN-SUFFIX,openai.net' # API 相关
+  - 'DOMAIN-SUFFIX,openai.net'  # API端点
   - 'DOMAIN,openaicom-api-bdc.net'
   - 'DOMAIN,openaiapi-site.azureedge.net'
-  - 'DOMAIN-SUFFIX,auth0.com' # OpenAI 使用的认证服务
+  - 'DOMAIN-SUFFIX,oaistatic.com'  # 静态资源
+  - 'DOMAIN-SUFFIX,oaiusercontent.com'  # 用户内容
+  - 'DOMAIN-SUFFIX,auth0.com'  # 认证服务
   - 'DOMAIN-KEYWORD,openai'
 
-  # === Google Gemini & AI Studio & Bard ===
+  # === Google AI (Gemini/Bard) ===
   - 'DOMAIN-SUFFIX,ai.google.dev'
+  - 'DOMAIN-SUFFIX,gemini.google.com'
+  - 'DOMAIN-SUFFIX,bard.google.com'
   - 'DOMAIN-SUFFIX,makersuite.google.com'
   - 'DOMAIN-SUFFIX,generativelanguage.googleapis.com'
-  - 'DOMAIN-SUFFIX,bard.google.com'
+  - 'DOMAIN-SUFFIX,accounts.google.com'  # 登录服务
+  - 'DOMAIN-SUFFIX,google.com'  # 核心域名
+  - 'DOMAIN-SUFFIX,1e100.net'  # 基础设施
   - 'DOMAIN-KEYWORD,gemini'
-  # Google 登录与核心服务 (非常重要！)
-  - 'DOMAIN-SUFFIX,accounts.google.com'
-  - 'DOMAIN-SUFFIX,google.com' # 确保Google搜索等也被代理
-  - 'DOMAIN-SUFFIX,1e100.net' # Google底层域名
 
-  # === Microsoft Copilot & Bing AI ===
+  # === Microsoft AI (Copilot/Bing) ===
   - 'DOMAIN-SUFFIX,copilot.microsoft.com'
+  - 'DOMAIN-SUFFIX,copilot.cloud.microsoft'
   - 'DOMAIN-SUFFIX,bing.com'
-  - 'DOMAIN,sydney.bing.com'
+  - 'DOMAIN,sydney.bing.com'  # 聊天服务
+  - 'DOMAIN-SUFFIX,ai.azure.com'  # Azure AI服务
 
   # === GitHub Copilot ===
   - 'DOMAIN,copilot.github.com'
   - 'DOMAIN,api.github.com'
+  - 'DOMAIN,api.githubcopilot.com'
+  - 'DOMAIN,copilot-proxy.githubusercontent.com'
+
+  # === Anthropic Claude ===
+  - 'DOMAIN-SUFFIX,anthropic.com'
+  - 'DOMAIN-SUFFIX,claude.ai'
+  - 'DOMAIN-KEYWORD,anthropic'
+  - 'DOMAIN-KEYWORD,claude'
+
+  # === 其他AI服务 ===
+  - 'DOMAIN-SUFFIX,meta.ai'
+  - 'DOMAIN-SUFFIX,mistral.ai'
+  - 'DOMAIN-SUFFIX,perplexity.ai'
+  - 'DOMAIN-SUFFIX,sora.com'
+  - 'DOMAIN,api.groq.com'  # Groq API
+  - 'DOMAIN,console.groq.com'
+  - 'DOMAIN,api.together.xyz'  # Together AI
+
+  # === 通用依赖服务 ===
+  - 'DOMAIN-SUFFIX,client-api.arkoselabs.com'  # 人机验证
+  - 'DOMAIN-SUFFIX,events.statsigapi.net'  # 功能开关
+  - 'DOMAIN-SUFFIX,featuregates.org'  # 功能标记
+  - 'DOMAIN-SUFFIX,grazie.ai'  # JetBrains AI
+  - 'DOMAIN-SUFFIX,intercom.io'  # 客服系统
+  - 'DOMAIN-SUFFIX,identrust.com'  # 证书验证
