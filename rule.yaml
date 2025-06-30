@@ -35,7 +35,7 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 🚀 节点选择
+      - 🚀 海外通用
       - 🇺🇲 美国节点
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
@@ -48,13 +48,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - ☁️ Cloudflare节点
-      - 🚀 节点选择
-      - 🇺🇲 美国节点
-      - 🇭🇰 香港节点
-      - 🇨🇳 台湾节点
-      - 🇸🇬 狮城节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
+      - 🚀 海外通用
       - 🚀 手动切换
   - name: 🎯 全球直连
     type: select
@@ -113,7 +107,7 @@ proxy-groups:
     tolerance: 50
   - name: ☁️ Cloudflare节点
     include-all: true
-    filter: (?i)CF|Korea|KOR|优选|韩|韓
+    filter: (?i)CF|cloudflare|优选
     type: url-test
     interval: 300
     tolerance: 50
@@ -192,27 +186,6 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  Netflix:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Netflix.list
-    path: ./ruleset/Netflix.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  Bahamut:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Bahamut.list
-    path: ./ruleset/Bahamut.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
-  ChinaMedia:
-    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaMedia.list
-    path: ./ruleset/ChinaMedia.list
-    behavior: classical
-    interval: 86400
-    format: text
-    type: http
   ProxyMedia:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyMedia.list
     path: ./ruleset/ProxyMedia.list
@@ -253,11 +226,14 @@ rules:
   - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
   - "PROCESS-NAME,subs-check,🎯 全球直连"
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
+  - "RULE-SET,my_ai,🌏 海外特殊"
+  - "RULE-SET,my_cloudflare,☁️ CF切换"
+  - "RULE-SET,my_google_smart_devices,🚀 海外通用"
   - "RULE-SET,GoogleFCM,🚀 海外通用"
   - "RULE-SET,GoogleCN,🎯 全球直连"
   - "RULE-SET,SteamCN,🎯 全球直连"
   - "RULE-SET,Telegram,🚀 海外通用"
-  - "RULE-SET,AI,💬 Ai平台"
+  - "RULE-SET,AI,🌏 海外特殊"
   - "RULE-SET,Steam,🎮 游戏平台"
   - "RULE-SET,YouTube,🚀 海外通用"
   - "RULE-SET,ProxyMedia,🚀 海外通用"
