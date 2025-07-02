@@ -9,7 +9,6 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
       - 🇰🇷 韩国节点
-      - 👆 手动切换
       - DIRECT
   - name: 🌏 海外特殊
     type: select
