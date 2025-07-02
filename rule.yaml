@@ -3,6 +3,7 @@ proxy-groups:
     type: select
     proxies:
       - ♻️ 自动选择
+      - 👆 手动切换
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
@@ -14,6 +15,7 @@ proxy-groups:
     type: select
     proxies:
       - ♻️ 自动选择
+      - 👆 手动切换
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
