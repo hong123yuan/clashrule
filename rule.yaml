@@ -11,7 +11,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 👆 手动切换
       - DIRECT
-  - name:   
+  - name: 🌏 海外特殊
     type: select
     proxies:
       - ♻️ 自动选择
@@ -21,7 +21,7 @@ proxy-groups:
       - 🇰🇷 韩国节点
       - 👆 手动切换
       - DIRECT
-  - name: 🚀 手动切换
+  - name: 👆 手动切换
     include-all: true
     type: select
   - name: ♻️ 自动选择
@@ -41,7 +41,7 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇰🇷 韩国节点
       - 👆 手动切换
-   - name: ☁️ CF切换
+  - name: ☁️ CF切换
     type: select
     proxies:
       - DIRECT
@@ -113,31 +113,31 @@ rule-providers:
   my_ai:
     type: http
     behavior: classical
-    url: "https://github.wanghy.top/https://githubusercontent.com/hong123yuan/clashrule/refs/heads/main/my%20rule/ai.yaml"
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/ai.yaml"
     path: ./ruleset/my_ai.yaml
     interval: 86400
   my_cloudflare:
     type: http
     behavior: classical
-    url: "https://github.wanghy.top/https://raw.githubusercontent.com/hong123yuan/clashrule/refs/heads/main/my%20rule/cloudflare.yaml"
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/cloudflare.yaml"
     path: ./ruleset/my_cloudflare.yaml
     interval: 86400
   my_google_smart_devices:
     type: http
     behavior: classical
-    url: "https://github.wanghy.top/https://raw.githubusercontent.com/hong123yuan/clashrule/refs/heads/main/my%20rule/smart.yaml"
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/smart.yaml"
     path: ./ruleset/my_google_smart_devices.yaml
     interval: 86400
   tongyong:
     type: http
     behavior: classical
-    url: "https://github.wanghy.top/https://raw.githubusercontent.com/hong123yuan/clashrule/refs/heads/main/my%20rule/tongyong.yaml"
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/tongyong.yaml"
     path: ./ruleset/tongyong.yaml
     interval: 86400
   zhilian:
     type: http
     behavior: classical
-    url: "https://github.wanghy.top/https://raw.githubusercontent.com/hong123yuan/clashrule/refs/heads/main/my%20rule/zhilian.yaml"
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/zhilian.yaml"
     path: ./ruleset/zhilian.yaml
     interval: 86400
   LocalAreaNetwork:
@@ -226,7 +226,7 @@ rules:
   - "RULE-SET,my_cloudflare,☁️ CF切换"
   - "RULE-SET,my_google_smart_devices,🚀 海外通用"
   - "RULE-SET,tongyong,🚀 海外通用"
-   - "RULE-SET,zhilian,🎯 全球直连"
+  - "RULE-SET,zhilian,🎯 全球直连"
   - "RULE-SET,GoogleFCM,🚀 海外通用"
   - "RULE-SET,GoogleCN,🎯 全球直连"
   - "RULE-SET,SteamCN,🎯 全球直连"
