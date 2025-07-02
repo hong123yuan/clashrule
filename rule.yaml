@@ -14,9 +14,7 @@ proxy-groups:
   - name: 🌏 海外特殊
     type: select
     proxies:
-      - 🚀 节点选择
       - ♻️ 自动选择
-      - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇲 美国节点
@@ -54,12 +52,12 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - 🚀 节点选择
+      - 🚀 海外通用
       - ♻️ 自动选择
   - name: 🐟 漏网之鱼
     type: select
     proxies:
-      - 🚀 节点选择
+      - 🚀 海外通用
       - ♻️ 自动选择
       - DIRECT
       - 🇭🇰 香港节点
