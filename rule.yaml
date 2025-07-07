@@ -235,7 +235,6 @@ rules:
   - "RULE-SET,tongyong,🚀 海外通用"
   - "RULE-SET,zhilian,🎯 全球直连"
   - "RULE-SET,GoogleFCM,🚀 海外通用"
-  - "RULE-SET,GoogleCN,🎯 全球直连"
   - "RULE-SET,SteamCN,🎯 全球直连"
   - "RULE-SET,Telegram,🚀 海外通用"
   - "RULE-SET,Steam,🎮 游戏平台"
