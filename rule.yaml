@@ -218,7 +218,13 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-
+  cn_ip:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
+    path: ./ruleset/cn.mrs
+    interval: 86400
+  
 rules:
   - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
   - "PROCESS-NAME,subs-check,🎯 全球直连"
@@ -239,6 +245,6 @@ rules:
   - "RULE-SET,ChinaDomain,🎯 全球直连"
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
   - "RULE-SET,Download,🎯 全球直连"
-  - "GEOIP,CN,🎯 全球直连"
+  - "RULE-SET,cn_ip,🎯 全球直连"
   - "MATCH,🐟 漏网之鱼"
 
