@@ -22,3 +22,4 @@ payload:
   # 设备激活和连接检查
   - 'DOMAIN,connectivitycheck.gstatic.com'
   - 'DOMAIN-SUFFIX,app-measurement.com'
+  - 'DOMAIN-SUFFIX,doubleclick.net'
