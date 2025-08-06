@@ -1,0 +1,365 @@
+#----------------------------------------------------------------#
+#                    Mihomo 配置文件 (更新版)                     #
+#        已根据您的新需求进行调整 (DNS分离, 双订阅, 端口)          #
+#----------------------------------------------------------------#
+
+# (1) 基础设置
+#----------------------------------------------------------------#
+# 混合端口，同时支持 HTTP 和 SOCKS5/SOCKS4 协议，供内网其他设备使用
+mixed-port: 7890
+# 变更点 3：根据您的需求，将 API 端口修改为 9097
+port: 9097
+socks-port: 7891
+# 已开启局域网连接
+allow-lan: true
+# 绑定到 0.0.0.0，以便局域网内所有设备都可以访问
+bind-address: '*'
+mode: rule
+log-level: info
+ipv6: true
+
+
+# (2) 外部控制与 UI 界面
+#----------------------------------------------------------------#
+# 变更点 3：同步修改 external-controller 的端口为 9097
+external-controller: '127.0.0.1:9097'
+# 访问地址现在是：http://<你的电脑IP>:9097/ui
+external-ui: ui
+external-ui-url: "https://github.com/MetaCubeX/yacd-meta/archive/gh-pages.zip"
+
+
+# (3) DNS 配置
+#----------------------------------------------------------------#
+# 变更点 1：根据您的需求修改 DNS 设置
+dns:
+  enable: true
+  listen: '0.0.0.0:1053'
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  # 用于解析直连域名 (国内) 的 DNS
+  nameserver:
+    - 10.10.8.8
+    - 114.114.114.114
+    - 223.5.5.5
+  # 用于解析代理域名 (国外) 的 DNS
+  fallback:
+    - https://8.8.8.8/dns-query
+    - https://1.1.1.1/dns-query
+  # 仅非中国大陆IP的域名查询走 fallback DNS，防止国内域名被国外 DNS 解析
+  fallback-filter: { geoip: true }
+  proxy-server-dns: true
+
+
+# (4) 代理节点订阅 (Proxy Providers)
+#----------------------------------------------------------------#
+# 变更点 2：添加两个订阅链接
+proxy-providers:
+  # 您的第一个主订阅
+  main_subscription:
+    type: http
+    # !!! 关键：请将下面的 URL 替换为您的第一个订阅链接 !!!
+    url: "https://example.com/your-main-subscription-url"
+    interval: 3600
+    path: ./main_subscription.yaml
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  # 您的第二个 Cloudflare 专用订阅
+  cloudflare_subscription:
+    type: http
+    # !!! 关键：请将下面的 URL 替换为您的 Cloudflare 专用订阅链接 !!!
+    url: "https://example.com/your-cloudflare-subscription-url"
+    interval: 3600
+    path: ./cloudflare_subscription.yaml
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+
+
+# (5) 代理节点 (Proxies)
+#----------------------------------------------------------------#
+proxies:
+  # 通常订阅后此处留空
+
+
+# (6) 代理组 (Proxy Groups)
+#----------------------------------------------------------------#
+# 变更点 2：调整策略组以支持双订阅
+proxy-groups:
+  - name: 🚀 海外通用
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 👆 手动切换
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - DIRECT
+  - name: 🌏 海外特殊
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 👆 手动切换
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - DIRECT
+  - name: 👆 手动切换
+    # 同时使用两个订阅的所有节点
+    use:
+      - main_subscription
+      - cloudflare_subscription
+    type: select
+  - name: ♻️ 自动选择
+    type: url-test
+    # 对两个订阅的所有节点进行延迟测试
+    use:
+      - main_subscription
+      - cloudflare_subscription
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🎮 游戏平台
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 海外通用
+      - 🇺🇲 美国节点
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇰🇷 韩国节点
+      - 👆 手动切换
+  - name: ☁️ CF切换
+    type: select
+    proxies:
+      - DIRECT
+      - ☁️ Cloudflare节点
+      - 🚀 海外通用
+      - 👆 手动切换
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 海外通用
+      - ♻️ 自动选择
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 海外通用
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇭🇰 香港节点
+      - 🇨🇳 台湾节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇲 美国节点
+      - 🇰🇷 韩国节点
+      - 👆 手动切换
+  - name: 🇭🇰 香港节点
+    # 从主订阅中筛选
+    use:
+      - main_subscription
+    filter: '(?i)港|HK|hk|Hong Kong|HongKong|hongkong'
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇯🇵 日本节点
+    use:
+      - main_subscription
+    filter: '(?i)日本|川日|东京|大阪|泉日|埼玉|沪日|深日|JP|Japan'
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇺🇲 美国节点
+    use:
+      - main_subscription
+    filter: '(?i)美|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States'
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇨🇳 台湾节点
+    use:
+      - main_subscription
+    filter: '(?i)台|新北|彰化|TW|Taiwan'
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇸🇬 狮城节点
+    use:
+      - main_subscription
+    filter: '(?i)新加坡|坡|狮城|SG|Singapore'
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: 🇰🇷 韩国节点
+    use:
+      - main_subscription
+    filter: '(?i)KR|Korea|KOR|首尔|韩|韓'
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+  - name: ☁️ Cloudflare节点
+    # 直接使用专用的 Cloudflare 订阅进行测速
+    use:
+      - cloudflare_subscription
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+
+# (7) 规则提供商 (Rule Providers) - 无需改动
+#----------------------------------------------------------------#
+rule-providers:
+  my_ai:
+    type: http
+    behavior: classical
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/ai.yaml"
+    path: ./ruleset/my_ai.yaml
+    interval: 86400
+  my_cloudflare:
+    type: http
+    behavior: classical
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/cloudflare.yaml"
+    path: ./ruleset/my_cloudflare.yaml
+    interval: 86400
+  my_google_smart_devices:
+    type: http
+    behavior: classical
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/smart.yaml"
+    path: ./ruleset/my_google_smart_devices.yaml
+    interval: 86400
+  tongyong:
+    type: http
+    behavior: classical
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/tongyong.yaml"
+    path: ./ruleset/tongyong.yaml
+    interval: 86400
+  zhilian:
+    type: http
+    behavior: classical
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/zhilian.yaml"
+    path: ./ruleset/zhilian.yaml
+    interval: 86400
+  LocalAreaNetwork:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
+    path: ./ruleset/LocalAreaNetwork.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  GoogleFCM:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/GoogleFCM.list
+    path: ./ruleset/GoogleFCM.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  SteamCN:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/SteamCN.list
+    path: ./ruleset/SteamCN.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Telegram:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Telegram.list
+    path: ./ruleset/Telegram.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Steam:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/Steam.list
+    path: ./ruleset/Steam.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  YouTube:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Ruleset/YouTube.list
+    path: ./ruleset/YouTube.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ProxyMedia:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyMedia.list
+    path: ./ruleset/ProxyMedia.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ProxyGFWlist:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ProxyGFWlist.list
+    path: ./ruleset/ProxyGFWlist.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ChinaDomain:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaDomain.list
+    path: ./ruleset/ChinaDomain.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  ChinaCompanyIp:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/ChinaCompanyIp.list
+    path: ./ruleset/ChinaCompanyIp.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  Download:
+    url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/Download.list
+    path: ./ruleset/Download.list
+    behavior: classical
+    interval: 86400
+    format: text
+    type: http
+  cn_ip:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
+    path: ./ruleset/cn.mrs
+    interval: 86400
+
+
+# (8) 路由规则 (Rules) - 无需改动
+#----------------------------------------------------------------#
+rules:
+  - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
+  - "PROCESS-NAME,subs-check,🎯 全球直连"
+  - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
+  - "RULE-SET,my_ai,🌏 海外特殊"
+  - "RULE-SET,my_cloudflare,☁️ CF切换"
+  - "RULE-SET,my_google_smart_devices,🚀 海外通用"
+  - "RULE-SET,tongyong,🚀 海外通用"
+  - "RULE-SET,zhilian,🎯 全球直连"
+  - "RULE-SET,GoogleFCM,🚀 海外通用"
+  - "RULE-SET,SteamCN,🎯 全球直连"
+  - "RULE-SET,Telegram,🚀 海外通用"
+  - "RULE-SET,Steam,🎮 游戏平台"
+  - "RULE-SET,YouTube,🚀 海外通用"
+  - "RULE-SET,ProxyMedia,🚀 海外通用"
+  - "RULE-SET,ProxyGFWlist,🚀 海外通用"
+  - "RULE-SET,ChinaDomain,🎯 全球直连"
+  - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
+  - "RULE-SET,Download,🎯 全球直连"
+  - "GEODATA,cn,🎯 全球直连"
+  - "MATCH,🐟 漏网之鱼"
