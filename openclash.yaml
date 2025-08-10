@@ -287,10 +287,10 @@ rules:
 - "PROCESS-NAME,subs-check.exe,\U0001F3AF 全球直连"
 - "PROCESS-NAME,subs-check,\U0001F3AF 全球直连"
 - "RULE-SET,LocalAreaNetwork,\U0001F3AF 全球直连"
-- "RULE-SET,my_ai,\U0001F30F 海外特殊"
+- "RULE-SET,my_ai,🌍 海外特殊"
 - RULE-SET,my_cloudflare,☁️ CF切换
 - "RULE-SET,my_google_smart_devices,\U0001F680 海外通用"
-- "RULE-SET,tongyong,\U0001F680 海外通用"
+- "RULE-SET,tongyong,🌍 海外特殊"
 - "RULE-SET,zhilian,\U0001F3AF 全球直连"
 - "RULE-SET,GoogleFCM,\U0001F680 海外通用"
 - "RULE-SET,SteamCN,\U0001F3AF 全球直连"
