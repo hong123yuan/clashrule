@@ -58,3 +58,5 @@ payload:
   - 'DOMAIN-SUFFIX,grazie.ai'  # JetBrains AI
   - 'DOMAIN-SUFFIX,intercom.io'  # 客服系统
   - 'DOMAIN-SUFFIX,identrust.com'  # 证书验证
+  - 'DOMAIN-SUFFIX,allpian.com'
+  - 'DOMAIN-SUFFIX,xvlivecams.com'
