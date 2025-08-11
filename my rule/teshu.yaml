@@ -1,1 +1,11 @@
- # === 特殊规则自维护 ===
+ # === 特殊规则自维护 ===payload:
+  # === OpenAI/ChatGPT ===
+  - 'DOMAIN-SUFFIX,openai.com'
+  - 'DOMAIN-SUFFIX,chatgpt.com'
+  - 'DOMAIN-SUFFIX,openai.net'  # API端点
+  - 'DOMAIN,openaicom-api-bdc.net'
+  - 'DOMAIN,openaiapi-site.azureedge.net'
+  - 'DOMAIN-SUFFIX,oaistatic.com'  # 静态资源
+  - 'DOMAIN-SUFFIX,oaiusercontent.com'  # 用户内容
+  - 'DOMAIN-SUFFIX,auth0.com'  # 认证服务
+  - 'DOMAIN-KEYWORD,openai'
