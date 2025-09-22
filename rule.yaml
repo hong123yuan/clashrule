@@ -2,23 +2,23 @@ proxy-groups:
   - name: 🚀 海外通用
     type: select
     proxies:
+      - 🇺🇲 美国节点
       - ♻️ 自动选择
       - 👆 手动切换
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
       - 🇰🇷 韩国节点
       - DIRECT
   - name: 🌏 海外特殊
     type: select
     proxies:
+      - 🇺🇲 美国节点
       - ♻️ 自动选择
       - 👆 手动切换
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
-      - 🇺🇲 美国节点
       - 🇰🇷 韩国节点
       - DIRECT
   - name: 👆 手动切换
@@ -58,9 +58,9 @@ proxy-groups:
   - name: 🐟 漏网之鱼
     type: select
     proxies:
+      - DIRECT
       - 🚀 海外通用
       - ♻️ 自动选择
-      - DIRECT
       - 🇭🇰 香港节点
       - 🇨🇳 台湾节点
       - 🇸🇬 狮城节点
