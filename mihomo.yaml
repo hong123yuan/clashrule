@@ -332,13 +332,6 @@ rule-providers:
     interval: 86400
     format: text
     type: http
-  cn_ip:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
-    path: ./ruleset/cn.mrs
-    interval: 86400
-
 
 # (8) 路由规则 (Rules) - 无需改动
 #----------------------------------------------------------------#
