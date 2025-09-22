@@ -221,9 +221,11 @@ rule-providers:
   cn_ip:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs
-    path: ./ruleset/cn.mrs
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaIp.list
+    path: ./ruleset/cn_ip.list
     interval: 86400
+    format: text
+    type: http
   
 rules:
   - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
