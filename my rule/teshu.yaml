@@ -2,8 +2,9 @@
 payload:
   - 'DOMAIN-SUFFIX,allpian.com'
   - 'DOMAIN-SUFFIX,xvlivecams.com'
+  - 'DOMAIN-SUFFIX,ipify.org'
   #- 'DOMAIN,openaiapi-site.azureedge.net'
   #- 'DOMAIN-SUFFIX,oaistatic.com'  # 静态资源
  # - 'DOMAIN-SUFFIX,oaiusercontent.com'  # 用户内容
   #- 'DOMAIN-SUFFIX,auth0.com'  # 认证服务
-  #- 'DOMAIN-KEYWORD,'
+  #- 'DOMAIN-KEYWORD,ipify.org'
