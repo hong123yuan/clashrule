@@ -60,3 +60,4 @@ payload:
   - 'DOMAIN-SUFFIX,identrust.com'  # 证书验证
   - 'DOMAIN-SUFFIX,allpian.com'
   - 'DOMAIN-SUFFIX,xvlivecams.com'
+  - 'DOMAIN-SUFFIX,ipify.org'  #ip定位
