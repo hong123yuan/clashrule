@@ -22,6 +22,7 @@ payload:
   - 'DOMAIN-SUFFIX,google.com'  # 核心域名
   - 'DOMAIN-SUFFIX,1e100.net'  # 基础设施
   - 'DOMAIN-KEYWORD,gemini'
+  - 'DOMAIN-SUFFIX,googleapis.com'
 
   # === Microsoft AI (Copilot/Bing) ===
   - 'DOMAIN-SUFFIX,copilot.microsoft.com'
