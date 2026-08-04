@@ -8,7 +8,6 @@ payload:
   - 'DOMAIN-SUFFIX,cloudflare-ipfs.com'
   - 'DOMAIN-SUFFIX,cloudflarestream.com'
   - 'DOMAIN-KEYWORD,cloudflare'
-  - 'DOMAIN-SUFFIX,wanghy.top'
   # Cloudflare 官方公布的 IP 段 (非常重要)
   # 这可以确保所有走向 Cloudflare CDN 的流量都能被匹配
   - 'IP-CIDR,173.245.48.0/20'
