@@ -1,11 +1,21 @@
 # custom/google-smart-devices.yaml
-# 谷歌智能家居设备（Nest, Smart Clock/Display）核心服务
+# 谷歌智能家居设备（Nest, Smart Clock/Display, Google Assistant 设备）核心服务
 payload:
   # 核心连接和 API
   - 'DOMAIN-SUFFIX,googleapis.com'
   - 'DOMAIN-SUFFIX,google.com'
   - 'DOMAIN-SUFFIX,gstatic.com'
   - 'DOMAIN-SUFFIX,googlevideo.com'
+
+  # 壁纸/Ambient 模式 (重要! 智能屏壁纸来自这里, 缺失会显示不出壁纸只显示时钟)
+  - 'DOMAIN-SUFFIX,googleusercontent.com'   # lh3.googleusercontent.com 壁纸CDN
+  - 'DOMAIN-SUFFIX,ggpht.com'               # Google 图片 CDN
+  - 'DOMAIN-SUFFIX,photos.google.com'       # Google Photos 相册壁纸
+  - 'DOMAIN-SUFFIX,firebaseio.com'          # Assistant/设备数据
+  - 'DOMAIN-SUFFIX,googlezip.net'           # Google 压缩代理
+  - 'DOMAIN-SUFFIX,gvt1.com'                # Google 更新/视频 CDN
+  - 'DOMAIN-SUFFIX,gvt2.com'
+  - 'DOMAIN-SUFFIX,1e100.net'               # Google 基础设施
 
   # Nest & Google Home 服务
   - 'DOMAIN-SUFFIX,nest.com'
@@ -18,6 +28,7 @@ payload:
 
   # Chromecast / Cast 协议
   - 'DOMAIN-SUFFIX,googlecast.com'
+  - 'DOMAIN-SUFFIX,chromecast.com'
 
   # 设备激活和连接检查
   - 'DOMAIN,connectivitycheck.gstatic.com'
