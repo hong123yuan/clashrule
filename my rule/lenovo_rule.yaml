@@ -19,3 +19,5 @@ payload:
   - 'DOMAIN-SUFFIX,azure.com'
   - 'DOMAIN-SUFFIX,azureedge.net'
   - 'DOMAIN-SUFFIX,blob.core.windows.net'
+  - 'DOMAIN-SUFFIX,windows.com'
+  - 'DOMAIN-SUFFIX,cloud.microsoft'
