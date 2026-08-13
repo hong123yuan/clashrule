@@ -151,6 +151,12 @@ rule-providers:
     url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/zhilian.yaml"
     path: ./ruleset/zhilian.yaml
     interval: 86400
+  lenovo_rule:
+    type: http
+    behavior: classical
+    url: "https://github.wanghy.top/github.com/hong123yuan/clashrule/blob/main/my%20rule/lenovo_rule.yaml"
+    path: ./ruleset/lenovo_rule.yaml
+    interval: 86400
   LocalAreaNetwork:
     url: https://testingcf.jsdelivr.net/gh/ACL4SSR/ACL4SSR@master/Clash/LocalAreaNetwork.list
     path: ./ruleset/LocalAreaNetwork.list
@@ -251,6 +257,7 @@ rules:
   - "RULE-SET,Steam,🎮 游戏平台"
   - "RULE-SET,YouTube,🚀 海外通用"
   - "RULE-SET,ProxyMedia,🚀 海外通用"
+  - "RULE-SET,lenovo_rule,🎯 全球直连"
   - "RULE-SET,ProxyGFWlist,🚀 海外通用"
   - "RULE-SET,ChinaDomain,🎯 全球直连"
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"

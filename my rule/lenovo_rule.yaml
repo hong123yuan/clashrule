@@ -1,0 +1,21 @@
+# custom/lenovo_rule.yaml
+# 微软/OneDrive/Office 办公流量直连（办公网内可达，避免被 ProxyGFWlist 劫持到海外节点）
+# 规则顺序：位于 ProxyGFWlist 之前；AI 域名(ai.yaml)在前不受影响
+payload:
+  - 'DOMAIN-SUFFIX,microsoft.com'
+  - 'DOMAIN-SUFFIX,sharepoint.com'
+  - 'DOMAIN-SUFFIX,onedrive.com'
+  - 'DOMAIN-SUFFIX,1drv.com'
+  - 'DOMAIN-KEYWORD,1drv'
+  - 'DOMAIN-KEYWORD,onedrive'
+  - 'DOMAIN-SUFFIX,sfx.ms'
+  - 'DOMAIN-SUFFIX,office.com'
+  - 'DOMAIN-SUFFIX,office365.com'
+  - 'DOMAIN-SUFFIX,office.net'
+  - 'DOMAIN-SUFFIX,live.com'
+  - 'DOMAIN-SUFFIX,msocdn.com'
+  - 'DOMAIN-SUFFIX,msedge.net'
+  - 'DOMAIN-SUFFIX,msftconnecttest.com'
+  - 'DOMAIN-SUFFIX,azure.com'
+  - 'DOMAIN-SUFFIX,azureedge.net'
+  - 'DOMAIN-SUFFIX,blob.core.windows.net'
