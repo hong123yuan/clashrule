@@ -34,3 +34,16 @@ payload:
   - 'DOMAIN,connectivitycheck.gstatic.com'
   - 'DOMAIN-SUFFIX,app-measurement.com'
   - 'DOMAIN-SUFFIX,doubleclick.net'
+
+  # Google 前端 IP 段 (AS15169) - 防止 IP 直连流量漏到 MATCH 走直连超时
+  # 覆盖实测: 172.217.114.4 (Play), 64.233.161.132 (lh-in-f132.1e100.net)
+  - 'IP-CIDR,64.233.160.0/19'
+  - 'IP-CIDR,66.102.0.0/20'
+  - 'IP-CIDR,72.14.192.0/18'
+  - 'IP-CIDR,74.125.0.0/16'
+  - 'IP-CIDR,108.177.0.0/17'
+  - 'IP-CIDR,142.250.0.0/15'
+  - 'IP-CIDR,172.217.0.0/16'
+  - 'IP-CIDR,173.194.0.0/16'
+  - 'IP-CIDR,209.85.128.0/17'
+  - 'IP-CIDR,216.58.192.0/19'
