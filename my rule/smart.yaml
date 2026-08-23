@@ -1,5 +1,7 @@
 # custom/google-smart-devices.yaml
-# 谷歌智能家居设备（Nest, Smart Clock/Display, Google Assistant 设备）核心服务
+# 智能家居设备核心服务：谷歌系（Nest, Smart Clock/Display, Google Assistant）
+# + 联想 Smart Clock Essential (CD-4N342Y, 内置 Alexa/Amazon 云)
+# 注意: 该 provider 在 rule.yaml 中走 🚀 海外通用 (代理)
 payload:
   # 核心连接和 API
   - 'DOMAIN-SUFFIX,googleapis.com'
@@ -47,3 +49,15 @@ payload:
   - 'IP-CIDR,173.194.0.0/16'
   - 'IP-CIDR,209.85.128.0/17'
   - 'IP-CIDR,216.58.192.0/19'
+
+  # 联想 Smart Clock Essential (CD-4N342Y) - Alexa 内置
+  # 依赖 Amazon 云 (Alexa Voice Service), 大陆直连不通, 需走代理
+  - 'DOMAIN-SUFFIX,amazon.com'
+  - 'DOMAIN-SUFFIX,amazonaws.com'
+  - 'DOMAIN-SUFFIX,alexa.com'
+  - 'DOMAIN-SUFFIX,amazonalexa.com'
+  - 'DOMAIN-SUFFIX,amazonapp.com'
+  - 'DOMAIN-SUFFIX,echo.amazon.com'
+  - 'DOMAIN-SUFFIX,media-amazon.com'
+  - 'DOMAIN-KEYWORD,amazonaws'
+  - 'DOMAIN-SUFFIX,avs.amazon.com'   # Alexa Voice Service
