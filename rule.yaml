@@ -90,6 +90,13 @@ proxy-groups:
     type: url-test
     interval: 300
     tolerance: 50
+  - name: 🤖 GoogleAI
+    include-all: true
+    filter: (?i)美|US|United States|日本|JP|Japan|台湾|TW|Taiwan
+    type: url-test
+    url: https://generativelanguage.googleapis.com/v1beta/models
+    interval: 300
+    tolerance: 50
   - name: 🇷🇺 俄罗斯节点
     include-all: true
     filter: (?i)RU|俄罗斯|俄|Russia|Rossiya
@@ -246,7 +253,7 @@ rules:
   - "PROCESS-NAME,subs-check.exe,🎯 全球直连"
   - "PROCESS-NAME,subs-check,🎯 全球直连"
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
-  - "RULE-SET,my_ai,🌏 海外特殊"
+  - "RULE-SET,my_ai,🤖 GoogleAI"
   - "RULE-SET,my_cloudflare,☁️ CF切换"
   - "RULE-SET,my_google_smart_devices,🚀 海外通用"
   - "RULE-SET,tongyong,🚀 海外通用"
