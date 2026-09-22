@@ -2,6 +2,7 @@ proxy-groups:
   - name: 🚀 海外通用
     type: select
     proxies:
+      - 🤖 GoogleAI
       - 🇺🇲 美国节点
       - ♻️ 自动选择
       - 👆 手动切换
@@ -15,6 +16,7 @@ proxy-groups:
   - name: 🌏 海外特殊
     type: select
     proxies:
+      - 🤖 GoogleAI
       - 🇺🇲 美国节点
       - ♻️ 自动选择
       - 👆 手动切换
@@ -92,7 +94,7 @@ proxy-groups:
     tolerance: 50
   - name: 🤖 GoogleAI
     include-all: true
-    filter: (?i)美|US|United States|日本|JP|Japan|台湾|TW|Taiwan
+    filter: (?i)GM-|🇺🇲|🇯🇵|🇨🇳|🇸🇬|🇰🇷|🇭🇰|🇩🇪|🇬🇧|🇨🇭|US|JP|TW|SG|KR|HK|DE|GB|CH|美|日|台|坡|韩|港|狮城
     type: url-test
     url: https://generativelanguage.googleapis.com/v1beta/models
     interval: 300
